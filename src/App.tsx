@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { Exercise } from './domain/types';
 import { useSettings } from './state/useSettings';
 import { getTable } from './data/standards';
-import { buildDisplayRows, findClosestRowIndex } from './domain/displayRows';
+import { buildDisplayRows, filterDisplayRows, findClosestRowIndex } from './domain/displayRows';
 import { interpolateLevels } from './domain/interpolation';
 import { Header } from './components/Header';
 import { SummaryBand } from './components/SummaryBand';
@@ -16,7 +16,7 @@ export function App() {
   const [sheetOpen, setSheetOpen] = useState(false);
 
   const table = getTable(settings.gender, exercise);
-  const rows = buildDisplayRows(table);
+  const rows = filterDisplayRows(buildDisplayRows(table), settings.showHeavyRows);
   const hasBodyweight = settings.bodyweight != null;
   const summary = hasBodyweight ? interpolateLevels(table, settings.bodyweight!) : null;
   const highlightIndex = hasBodyweight ? findClosestRowIndex(rows, settings.bodyweight!) : -1;
@@ -33,7 +33,7 @@ export function App() {
             設定から性別・体重を入力すると、あなたの目安が表示されます
           </p>
         )}
-        <StandardsTable rows={rows} highlightIndex={highlightIndex} />
+        <StandardsTable rows={rows} highlightIndex={highlightIndex} showWorldRecord={settings.showWorldRecord} />
         <p className="mt-6 mb-2 text-center text-[11px] text-muted">
           基準データ出典: ExRx Strength Standards（18-39歳）。補間値は目安です。
         </p>

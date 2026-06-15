@@ -3,7 +3,15 @@ import { LEVELS } from '../domain/types';
 import { LEVEL_LABEL, LEVEL_COLOR_VAR } from '../domain/labels';
 import { formatStandard } from '../domain/format';
 
-export function StandardsTable({ rows, highlightIndex }: { rows: DisplayRow[]; highlightIndex: number }) {
+export function StandardsTable({
+  rows,
+  highlightIndex,
+  showWorldRecord,
+}: {
+  rows: DisplayRow[];
+  highlightIndex: number;
+  showWorldRecord: boolean;
+}) {
   return (
     <table className="w-full border-collapse text-right text-xs">
       <thead>
@@ -21,12 +29,14 @@ export function StandardsTable({ rows, highlightIndex }: { rows: DisplayRow[]; h
             </th>
           ))}
           {/* World Record は到達目標ではなく「参考記録」。熱量ランプ色を使わず muted＋ヘアライン仕切りで分離する。 */}
-          <th
-            scope="col"
-            className="sticky top-[57px] z-[5] border-l border-hairline bg-surface-sunken px-1 py-2 align-bottom font-sans text-[11px] font-bold leading-tight tracking-wide text-muted"
-          >
-            世界記録
-          </th>
+          {showWorldRecord && (
+            <th
+              scope="col"
+              className="sticky top-[57px] z-[5] border-l border-hairline bg-surface-sunken px-1 py-2 align-bottom font-sans text-[11px] font-bold leading-tight tracking-wide text-muted"
+            >
+              世界記録
+            </th>
+          )}
         </tr>
       </thead>
       <tbody>
@@ -54,9 +64,11 @@ export function StandardsTable({ rows, highlightIndex }: { rows: DisplayRow[]; h
                   {formatStandard(r.values[lv])}
                 </td>
               ))}
-              <td className="tabular border-l border-hairline px-1 py-2 text-ink">
-                {formatStandard(r.worldRecord)}
-              </td>
+              {showWorldRecord && (
+                <td className="tabular border-l border-hairline px-1 py-2 text-ink">
+                  {formatStandard(r.worldRecord)}
+                </td>
+              )}
             </tr>
           );
         })}

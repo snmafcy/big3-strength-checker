@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildDisplayRows, findClosestRowIndex } from './displayRows';
+import { buildDisplayRows, filterDisplayRows, findClosestRowIndex } from './displayRows';
 import { getTable } from '../data/standards';
 
 const bench = getTable('male', 'bench'); // closed: 52,56,60,67,75,82,90,100,110,125,145 + 145plus
@@ -39,6 +39,23 @@ describe('buildDisplayRows', () => {
     expect(mid54.worldRecord).toBeCloseTo(203, 5);
     // plus 行(145+)の WR は 355.0
     expect(rows[rows.length - 1].worldRecord).toBe(355);
+  });
+});
+
+describe('filterDisplayRows', () => {
+  const rows = buildDisplayRows(bench);
+
+  it('showHeavy=false は 125kg以降（125/145/145+）を除外し末尾が 110.0', () => {
+    const filtered = filterDisplayRows(rows, false);
+    expect(filtered.every((r) => r.bodyweight < 125)).toBe(true);
+    expect(filtered.some((r) => r.plus)).toBe(false);
+    expect(filtered[filtered.length - 1].label).toBe('110.0');
+  });
+
+  it('showHeavy=true は全行（plus 含む）を保持', () => {
+    const filtered = filterDisplayRows(rows, true);
+    expect(filtered).toHaveLength(rows.length);
+    expect(filtered[filtered.length - 1].label).toBe('145.0+');
   });
 });
 
