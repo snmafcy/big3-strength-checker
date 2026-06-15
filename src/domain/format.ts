@@ -1,7 +1,9 @@
-/** 体重ラベル用。整数は小数点なし、端数は小数第1位まで。 */
+/**
+ * 体重ラベル用。常に小数第1位まで表示する（例: 70 → "70.0", 78.5 → "78.5"）。
+ * 体重はユーザー入力やアンカー値をそのまま見せるため0.5刻みには丸めない（小数1位で丸めのみ）。
+ */
 export function formatKg(value: number): string {
-  const rounded = Math.round(value * 10) / 10;
-  return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
+  return (Math.round(value * 10) / 10).toFixed(1);
 }
 
 /** 最近接の0.5刻みに丸める（本家ExRxの基準値はすべて .0/.5 刻み）。 */
