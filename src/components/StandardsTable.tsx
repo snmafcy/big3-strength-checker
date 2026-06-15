@@ -7,12 +7,14 @@ export function StandardsTable({ rows, highlightIndex }: { rows: DisplayRow[]; h
   return (
     <table className="w-full border-collapse text-right text-sm">
       <thead>
-        <tr className="sticky top-[57px] bg-surface-sunken">
-          <th className="px-1.5 py-2 text-left font-sans text-[11px] font-bold tracking-wide text-muted">体重</th>
+        <tr>
+          <th className="sticky top-[57px] z-[5] bg-surface-sunken px-1.5 py-2 text-left font-sans text-[11px] font-bold tracking-wide text-muted">
+            体重
+          </th>
           {LEVELS.map((lv) => (
             <th
               key={lv}
-              className="px-1.5 py-2 font-sans text-[11px] font-bold tracking-wide"
+              className="sticky top-[57px] z-[5] bg-surface-sunken px-1.5 py-2 font-sans text-[11px] font-bold tracking-wide"
               style={{ color: LEVEL_COLOR_VAR[lv] }}
             >
               {LEVEL_LABEL[lv]}
@@ -39,7 +41,6 @@ export function StandardsTable({ rows, highlightIndex }: { rows: DisplayRow[]; h
               <td className="tabular px-1.5 py-2 text-left text-ink">
                 {isHighlight && <span className="mr-1 text-primary">▶</span>}
                 {r.label}
-                {r.plus ? '超' : ''}
               </td>
               {LEVELS.map((lv) => (
                 <td key={lv} className="tabular px-1.5 py-2 text-ink">
