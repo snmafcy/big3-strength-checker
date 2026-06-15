@@ -28,7 +28,8 @@ describe('App', () => {
     await user.click(screen.getByRole('button', { name: '保存' }));
 
     const summary = screen.getByText(/あなた\(/).closest('section')!;
-    expect(within(summary).getByText('80.3')).toBeInTheDocument();
+    // 70kg の intermediate 80.3125 → 0.5刻みで 80.5、常に小数1桁表示
+    expect(within(summary).getByText('80.5')).toBeInTheDocument();
     expect(screen.getByTestId('highlight-row')).toBeInTheDocument();
   });
 

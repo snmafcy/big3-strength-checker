@@ -8,6 +8,7 @@ export interface DisplayRow {
   plus: boolean;
   interpolated: boolean;
   values: Record<Level, number>;
+  worldRecord: number;
 }
 
 function levelValues(a: Anchor): Record<Level, number> {
@@ -23,6 +24,7 @@ function anchorRow(a: Anchor): DisplayRow {
     plus: false,
     interpolated: false,
     values: levelValues(a),
+    worldRecord: a.worldRecord,
   };
 }
 
@@ -39,7 +41,14 @@ export function buildDisplayRows(table: StandardsTable): DisplayRow[] {
       const mid = (a.bodyweight + next.bodyweight) / 2;
       const values = {} as Record<Level, number>;
       for (const lv of LEVELS) values[lv] = (a[lv] + next[lv]) / 2;
-      rows.push({ bodyweight: mid, label: formatKg(mid), plus: false, interpolated: true, values });
+      rows.push({
+        bodyweight: mid,
+        label: formatKg(mid),
+        plus: false,
+        interpolated: true,
+        values,
+        worldRecord: (a.worldRecord + next.worldRecord) / 2,
+      });
     }
   }
 
@@ -50,6 +59,7 @@ export function buildDisplayRows(table: StandardsTable): DisplayRow[] {
       plus: true,
       interpolated: false,
       values: levelValues(plusRow),
+      worldRecord: plusRow.worldRecord,
     });
   }
   return rows;

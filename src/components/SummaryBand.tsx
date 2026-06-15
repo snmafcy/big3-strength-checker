@@ -1,7 +1,7 @@
 import type { InterpolatedLevels } from '../domain/interpolation';
 import { LEVELS } from '../domain/types';
 import { LEVEL_LABEL, LEVEL_COLOR_VAR } from '../domain/labels';
-import { formatKg } from '../domain/format';
+import { formatKg, formatStandard } from '../domain/format';
 
 export function SummaryBand({ bodyweight, levels }: { bodyweight: number; levels: InterpolatedLevels }) {
   return (
@@ -20,7 +20,7 @@ export function SummaryBand({ bodyweight, levels }: { bodyweight: number; levels
             <dt className="mb-1 text-[11px] font-bold tracking-wide" style={{ color: LEVEL_COLOR_VAR[lv] }}>
               {LEVEL_LABEL[lv]}
             </dt>
-            <dd className="tabular text-2xl font-bold text-ink">{formatKg(levels[lv])}</dd>
+            <dd className="tabular text-2xl font-bold text-ink">{formatStandard(levels[lv])}</dd>
           </div>
         ))}
       </dl>

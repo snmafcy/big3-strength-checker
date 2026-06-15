@@ -30,6 +30,16 @@ describe('buildDisplayRows', () => {
     // 67kg intermediate 77.5, 75kg intermediate 85 → 平均 81.25
     expect(mid.values.intermediate).toBeCloseTo(81.25, 2);
   });
+
+  it('各行に worldRecord を持ち、中間行は両端の平均', () => {
+    // 52kg アンカーの WR は 199.0
+    expect(rows[0].worldRecord).toBe(199);
+    // 52-56 の中間行(54): (199+207)/2 = 203
+    const mid54 = rows.find((r) => r.label === '54')!;
+    expect(mid54.worldRecord).toBeCloseTo(203, 5);
+    // plus 行(145+)の WR は 355.0
+    expect(rows[rows.length - 1].worldRecord).toBe(355);
+  });
 });
 
 describe('findClosestRowIndex', () => {
