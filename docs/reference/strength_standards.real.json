@@ -1,0 +1,104 @@
+{
+  "unit": "kg",
+  "source": "ExRx Strength Standards (kgページ)。Squat: https://exrx.net/Testing/WeightLifting/SquatStandardsKg / Bench: https://exrx.net/Testing/WeightLifting/BenchStandardsKg / Deadlift: https://exrx.net/Testing/WeightLifting/DeadliftStandardsKg",
+  "age_band": "18-39",
+  "note": "値はkgそのまま（lb換算不要）。'plus':true の行は上限オープン（例 145+ = 145kg超）。levels=untrained/novice/intermediate/advanced/elite。world_record は参考列で、トレーニング目標レベルではない。",
+  "tables": [
+    {
+      "gender": "male", "exercise": "deadlift",
+      "anchors": [
+        {"bodyweight": 52, "untrained": 42.5, "novice": 82.5, "intermediate": 92.5, "advanced": 135.0, "elite": 175.0, "world_record": 270.0},
+        {"bodyweight": 56, "untrained": 47.5, "novice": 87.5, "intermediate": 100.0, "advanced": 145.0, "elite": 187.5, "world_record": 288.0},
+        {"bodyweight": 60, "untrained": 50.0, "novice": 95.0, "intermediate": 110.0, "advanced": 155.0, "elite": 200.0, "world_record": 286.0},
+        {"bodyweight": 67, "untrained": 57.5, "novice": 107.5, "intermediate": 122.5, "advanced": 172.5, "elite": 217.5, "world_record": 320.0},
+        {"bodyweight": 75, "untrained": 62.5, "novice": 115.0, "intermediate": 135.0, "advanced": 185.0, "elite": 235.0, "world_record": 345.0},
+        {"bodyweight": 82, "untrained": 67.5, "novice": 125.0, "intermediate": 142.5, "advanced": 200.0, "elite": 250.0, "world_record": 405.0},
+        {"bodyweight": 90, "untrained": 70.0, "novice": 132.5, "intermediate": 152.5, "advanced": 207.5, "elite": 257.5, "world_record": 400.0},
+        {"bodyweight": 100, "untrained": 75.0, "novice": 137.5, "intermediate": 160.0, "advanced": 217.5, "elite": 265.0, "world_record": 433.0},
+        {"bodyweight": 110, "untrained": 77.5, "novice": 145.0, "intermediate": 165.0, "advanced": 222.5, "elite": 270.0, "world_record": 441.0},
+        {"bodyweight": 125, "untrained": 80.0, "novice": 147.5, "intermediate": 170.0, "advanced": 227.5, "elite": 272.5, "world_record": 431.0},
+        {"bodyweight": 145, "untrained": 82.5, "novice": 152.5, "intermediate": 172.5, "advanced": 230.0, "elite": 277.5, "world_record": 427.0},
+        {"bodyweight": 145, "plus": true, "untrained": 85.0, "novice": 155.0, "intermediate": 177.5, "advanced": 232.5, "elite": 280.0, "world_record": 461.0}
+      ]
+    },
+    {
+      "gender": "female", "exercise": "deadlift",
+      "anchors": [
+        {"bodyweight": 44, "untrained": 25.0, "novice": 47.5, "intermediate": 50.0, "advanced": 80.0, "elite": 105.0, "world_record": 159.0},
+        {"bodyweight": 48, "untrained": 27.5, "novice": 52.5, "intermediate": 60.0, "advanced": 85.0, "elite": 110.0, "world_record": 168.0},
+        {"bodyweight": 52, "untrained": 30.0, "novice": 55.0, "intermediate": 62.5, "advanced": 90.0, "elite": 115.0, "world_record": 184.0},
+        {"bodyweight": 56, "untrained": 32.5, "novice": 60.0, "intermediate": 67.5, "advanced": 95.0, "elite": 120.0, "world_record": 189.0},
+        {"bodyweight": 60, "untrained": 35.0, "novice": 62.5, "intermediate": 72.5, "advanced": 100.0, "elite": 125.0, "world_record": 198.0},
+        {"bodyweight": 67, "untrained": 37.5, "novice": 67.5, "intermediate": 80.0, "advanced": 110.0, "elite": 135.0, "world_record": 214.0},
+        {"bodyweight": 75, "untrained": 40.0, "novice": 72.5, "intermediate": 85.0, "advanced": 117.5, "elite": 145.0, "world_record": 227.0},
+        {"bodyweight": 82, "untrained": 42.5, "novice": 80.0, "intermediate": 92.5, "advanced": 125.0, "elite": 150.0, "world_record": 229.0},
+        {"bodyweight": 90, "untrained": 45.0, "novice": 87.5, "intermediate": 97.5, "advanced": 130.0, "elite": 160.0, "world_record": 230.0},
+        {"bodyweight": 90, "plus": true, "untrained": 50.0, "novice": 90.0, "intermediate": 105.0, "advanced": 137.5, "elite": 165.0, "world_record": 252.0}
+      ]
+    },
+    {
+      "gender": "male", "exercise": "bench",
+      "anchors": [
+        {"bodyweight": 52, "untrained": 37.5, "novice": 50.0, "intermediate": 60.0, "advanced": 82.5, "elite": 100.0, "world_record": 199.0},
+        {"bodyweight": 56, "untrained": 40.0, "novice": 52.5, "intermediate": 62.5, "advanced": 90.0, "elite": 110.0, "world_record": 207.0},
+        {"bodyweight": 60, "untrained": 45.0, "novice": 57.5, "intermediate": 70.0, "advanced": 95.0, "elite": 117.5, "world_record": 211.0},
+        {"bodyweight": 67, "untrained": 50.0, "novice": 65.0, "intermediate": 77.5, "advanced": 107.5, "elite": 132.5, "world_record": 229.0},
+        {"bodyweight": 75, "untrained": 55.0, "novice": 70.0, "intermediate": 85.0, "advanced": 115.0, "elite": 145.0, "world_record": 245.0},
+        {"bodyweight": 82, "untrained": 60.0, "novice": 75.0, "intermediate": 90.0, "advanced": 125.0, "elite": 157.5, "world_record": 253.0},
+        {"bodyweight": 90, "untrained": 62.5, "novice": 80.0, "intermediate": 97.5, "advanced": 132.5, "elite": 162.5, "world_record": 277.0},
+        {"bodyweight": 100, "untrained": 62.5, "novice": 82.5, "intermediate": 102.5, "advanced": 137.5, "elite": 172.5, "world_record": 280.0},
+        {"bodyweight": 110, "untrained": 65.0, "novice": 85.0, "intermediate": 105.0, "advanced": 142.5, "elite": 180.0, "world_record": 305.0},
+        {"bodyweight": 125, "untrained": 67.5, "novice": 87.5, "intermediate": 107.5, "advanced": 147.5, "elite": 185.0, "world_record": 307.0},
+        {"bodyweight": 145, "untrained": 70.0, "novice": 90.0, "intermediate": 112.5, "advanced": 152.5, "elite": 190.0, "world_record": 320.0},
+        {"bodyweight": 145, "plus": true, "untrained": 72.5, "novice": 92.5, "intermediate": 115.0, "advanced": 155.0, "elite": 192.5, "world_record": 355.0}
+      ]
+    },
+    {
+      "gender": "female", "exercise": "bench",
+      "anchors": [
+        {"bodyweight": 44, "untrained": 22.5, "novice": 30.0, "intermediate": 35.0, "advanced": 42.5, "elite": 52.5, "world_record": 80.0},
+        {"bodyweight": 48, "untrained": 25.0, "novice": 32.5, "intermediate": 37.5, "advanced": 45.0, "elite": 57.5, "world_record": 90.0},
+        {"bodyweight": 52, "untrained": 27.5, "novice": 35.0, "intermediate": 37.5, "advanced": 50.0, "elite": 62.5, "world_record": 107.0},
+        {"bodyweight": 56, "untrained": 30.0, "novice": 37.5, "intermediate": 40.0, "advanced": 52.5, "elite": 65.0, "world_record": 120.0},
+        {"bodyweight": 60, "untrained": 32.5, "novice": 40.0, "intermediate": 42.5, "advanced": 57.5, "elite": 67.5, "world_record": 122.0},
+        {"bodyweight": 67, "untrained": 35.0, "novice": 40.0, "intermediate": 47.5, "advanced": 62.5, "elite": 75.0, "world_record": 124.0},
+        {"bodyweight": 75, "untrained": 37.5, "novice": 42.5, "intermediate": 52.5, "advanced": 65.0, "elite": 85.0, "world_record": 128.0},
+        {"bodyweight": 82, "untrained": 37.5, "novice": 50.0, "intermediate": 55.0, "advanced": 72.5, "elite": 90.0, "world_record": 133.0},
+        {"bodyweight": 90, "untrained": 40.0, "novice": 52.5, "intermediate": 60.0, "advanced": 75.0, "elite": 95.0, "world_record": 137.0},
+        {"bodyweight": 90, "plus": true, "untrained": 42.5, "novice": 55.0, "intermediate": 62.5, "advanced": 80.0, "elite": 100.0, "world_record": 145.0}
+      ]
+    },
+    {
+      "gender": "male", "exercise": "squat",
+      "anchors": [
+        {"bodyweight": 52, "untrained": 35.0, "novice": 65.0, "intermediate": 80.0, "advanced": 107.5, "elite": 145.0, "world_record": 240.0},
+        {"bodyweight": 56, "untrained": 37.5, "novice": 70.0, "intermediate": 87.5, "advanced": 117.5, "elite": 157.5, "world_record": 245.0},
+        {"bodyweight": 60, "untrained": 40.0, "novice": 77.5, "intermediate": 92.5, "advanced": 127.5, "elite": 167.5, "world_record": 250.0},
+        {"bodyweight": 67, "untrained": 45.0, "novice": 85.0, "intermediate": 105.0, "advanced": 142.5, "elite": 185.0, "world_record": 265.0},
+        {"bodyweight": 75, "untrained": 50.0, "novice": 92.5, "intermediate": 112.5, "advanced": 155.0, "elite": 202.5, "world_record": 300.0},
+        {"bodyweight": 82, "untrained": 55.0, "novice": 100.0, "intermediate": 122.5, "advanced": 167.5, "elite": 217.5, "world_record": 345.0},
+        {"bodyweight": 90, "untrained": 57.5, "novice": 105.0, "intermediate": 130.0, "advanced": 177.5, "elite": 230.0, "world_record": 365.0},
+        {"bodyweight": 100, "untrained": 60.0, "novice": 110.0, "intermediate": 135.0, "advanced": 185.0, "elite": 240.0, "world_record": 374.0},
+        {"bodyweight": 110, "untrained": 62.5, "novice": 115.0, "intermediate": 140.0, "advanced": 192.5, "elite": 250.0, "world_record": 390.0},
+        {"bodyweight": 125, "untrained": 65.0, "novice": 117.5, "intermediate": 145.0, "advanced": 197.5, "elite": 257.5, "world_record": 410.0},
+        {"bodyweight": 145, "untrained": 67.5, "novice": 122.5, "intermediate": 147.5, "advanced": 202.5, "elite": 262.5, "world_record": 419.0},
+        {"bodyweight": 145, "plus": true, "untrained": 70.0, "novice": 125.0, "intermediate": 150.0, "advanced": 207.5, "elite": 270.0, "world_record": 491.0}
+      ]
+    },
+    {
+      "gender": "female", "exercise": "squat",
+      "anchors": [
+        {"bodyweight": 44, "untrained": 20.0, "novice": 37.5, "intermediate": 45.0, "advanced": 60.0, "elite": 75.0, "world_record": 127.0},
+        {"bodyweight": 48, "untrained": 22.5, "novice": 40.0, "intermediate": 47.5, "advanced": 65.0, "elite": 80.0, "world_record": 136.0},
+        {"bodyweight": 52, "untrained": 25.0, "novice": 45.0, "intermediate": 52.5, "advanced": 67.5, "elite": 87.5, "world_record": 155.0},
+        {"bodyweight": 56, "untrained": 25.0, "novice": 47.5, "intermediate": 55.0, "advanced": 72.5, "elite": 90.0, "world_record": 157.0},
+        {"bodyweight": 60, "untrained": 27.5, "novice": 50.0, "intermediate": 60.0, "advanced": 77.5, "elite": 95.0, "world_record": 164.0},
+        {"bodyweight": 67, "untrained": 30.0, "novice": 55.0, "intermediate": 62.5, "advanced": 85.0, "elite": 105.0, "world_record": 178.0},
+        {"bodyweight": 75, "untrained": 32.5, "novice": 57.5, "intermediate": 67.5, "advanced": 90.0, "elite": 115.0, "world_record": 194.0},
+        {"bodyweight": 82, "untrained": 35.0, "novice": 62.5, "intermediate": 75.0, "advanced": 97.5, "elite": 122.5, "world_record": 200.0},
+        {"bodyweight": 90, "untrained": 37.5, "novice": 67.5, "intermediate": 80.0, "advanced": 105.0, "elite": 132.5, "world_record": 210.0},
+        {"bodyweight": 90, "plus": true, "untrained": 40.0, "novice": 72.5, "intermediate": 85.0, "advanced": 110.0, "elite": 137.5, "world_record": 232.0}
+      ]
+    }
+  ]
+}
