@@ -118,7 +118,7 @@ export function SettingsSheet({
           )}
         </div>
 
-        <div className="mb-2 border-t border-hairline pt-2">
+        <div className="mb-2 pt-1">
           <p className="mb-1 text-[11px] font-bold tracking-wide text-muted">表示オプション</p>
           <Toggle id="opt-heavy" label="125kg以降の行を表示" checked={showHeavyRows} onChange={setShowHeavyRows} />
           <Toggle id="opt-wr" label="世界記録の列を表示" checked={showWorldRecord} onChange={setShowWorldRecord} />

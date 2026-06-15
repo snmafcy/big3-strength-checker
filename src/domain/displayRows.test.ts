@@ -10,9 +10,9 @@ describe('buildDisplayRows', () => {
   it('本家アンカー行をそのまま用い、中間行は挿入しない（末尾に plus 行）', () => {
     // closed 11 + plus 1 = 12（中間補間行は無し）
     expect(rows).toHaveLength(12);
-    expect(rows[0].label).toBe('52.0');
-    expect(rows.some((r) => r.label === '71.0')).toBe(false); // 中間行は無い
-    expect(rows[rows.length - 1].label).toBe('145.0+');
+    expect(rows[0].label).toBe('52');
+    expect(rows.some((r) => r.label === '71')).toBe(false); // 中間行は無い
+    expect(rows[rows.length - 1].label).toBe('145+');
     expect(rows[rows.length - 1].plus).toBe(true);
   });
 
@@ -30,13 +30,13 @@ describe('filterDisplayRows', () => {
     const filtered = filterDisplayRows(rows, false);
     expect(filtered.every((r) => r.bodyweight < 125)).toBe(true);
     expect(filtered.some((r) => r.plus)).toBe(false);
-    expect(filtered[filtered.length - 1].label).toBe('110.0');
+    expect(filtered[filtered.length - 1].label).toBe('110');
   });
 
   it('showHeavy=true は全行（plus 含む）を保持', () => {
     const filtered = filterDisplayRows(rows, true);
     expect(filtered).toHaveLength(rows.length);
-    expect(filtered[filtered.length - 1].label).toBe('145.0+');
+    expect(filtered[filtered.length - 1].label).toBe('145+');
   });
 });
 
@@ -44,6 +44,6 @@ describe('findClosestRowIndex', () => {
   const rows = buildDisplayRows(bench);
   it('体重70kg に最も近いアンカーは 67 の行', () => {
     const idx = findClosestRowIndex(rows, 70);
-    expect(rows[idx].label).toBe('67.0');
+    expect(rows[idx].label).toBe('67');
   });
 });

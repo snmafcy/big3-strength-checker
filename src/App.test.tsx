@@ -45,9 +45,9 @@ describe('App', () => {
   it('表示オプションで世界記録列と125kg以降の行を出せる（既定は非表示）', async () => {
     const user = userEvent.setup();
     render(<App />);
-    // 既定では世界記録列も 145.0+ 行も無い
+    // 既定では世界記録列も 145+ 行も無い
     expect(screen.queryByText('世界記録')).not.toBeInTheDocument();
-    expect(screen.queryByText('145.0+')).not.toBeInTheDocument();
+    expect(screen.queryByText('145+')).not.toBeInTheDocument();
 
     await user.click(screen.getByRole('button', { name: '設定' }));
     await user.type(screen.getByLabelText('体重 (kg)'), '70');
@@ -56,7 +56,7 @@ describe('App', () => {
     await user.click(screen.getByRole('button', { name: '保存' }));
 
     expect(screen.getByText('世界記録')).toBeInTheDocument();
-    expect(screen.getByText('145.0+')).toBeInTheDocument();
+    expect(screen.getByText('145+')).toBeInTheDocument();
   });
 
   it('不正な体重（10kg）は保存されずエラーを表示する', async () => {
