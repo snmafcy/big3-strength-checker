@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-15T00:00:00Z",
+  "title": "Design System: BIG3 レベルチェッカー",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Platform Red",
+        "canonical": "oklch(0.48 0.20 22)",
+        "tonalRamp": ["oklch(0.20 0.09 22)", "oklch(0.28 0.13 22)", "oklch(0.36 0.16 22)", "oklch(0.44 0.19 22)", "oklch(0.52 0.20 22)", "oklch(0.66 0.16 22)", "oklch(0.82 0.09 22)", "oklch(0.95 0.03 22)"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(0.18 0 0)",
+        "tonalRamp": ["oklch(0.15 0 0)", "oklch(0.18 0 0)", "oklch(0.28 0 0)", "oklch(0.44 0 0)", "oklch(0.60 0 0)", "oklch(0.78 0 0)", "oklch(0.93 0 0)", "oklch(1 0 0)"]
+      },
+      "warn": {
+        "role": "secondary",
+        "displayName": "Warning Amber",
+        "canonical": "oklch(0.82 0.14 75)",
+        "tonalRamp": ["oklch(0.30 0.06 70)", "oklch(0.40 0.08 72)", "oklch(0.52 0.11 73)", "oklch(0.64 0.13 74)", "oklch(0.74 0.14 75)", "oklch(0.82 0.14 75)", "oklch(0.90 0.09 76)", "oklch(0.96 0.04 78)"]
+      },
+      "level-elite": {
+        "role": "tertiary",
+        "displayName": "Elite (Ramp Apex)",
+        "canonical": "oklch(0.47 0.21 22)",
+        "tonalRamp": ["oklch(0.50 0 0)", "oklch(0.50 0.09 30)", "oklch(0.50 0.14 26)", "oklch(0.49 0.18 24)", "oklch(0.47 0.21 22)", "oklch(0.62 0.17 22)", "oklch(0.80 0.10 22)", "oklch(0.94 0.04 22)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "ワードマークのみ。Zen Kaku Gothic New 900。" },
+      "data-hero": { "displayName": "Data Hero", "purpose": "サマリーの大きな目安数値、体重入力。Spline Sans Mono 700。" },
+      "data": { "displayName": "Data", "purpose": "表内の全数値。Spline Sans Mono、タブュラー右揃え。" },
+      "label": { "displayName": "Level Label", "purpose": "レベル列見出しのみ。熱量ランプ色。" }
+    },
+    "shadows": [
+      { "name": "sheet-lift", "value": "0 -8px 32px oklch(0.15 0 0 / 0.18)", "purpose": "下から立ち上がる設定シート上端のみ。唯一の影。" }
+    ],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "シートのスライドアップ、240ms。" },
+      { "name": "ease-out-quint", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "タブインジケータのスライド、180ms。" },
+      { "name": "ease-out-standard", "value": "cubic-bezier(0.33, 1, 0.68, 1)", "purpose": "ボタン/状態の既定トランジション、150ms。" }
+    ],
+    "breakpoints": [
+      { "name": "content-max", "value": "28rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "保存などの主要アクション。Platform Red 塗り、ほぼ直角、フル幅で使うことが多い。",
+      "html": "<button class=\"ds-btn-primary\">保存</button>",
+      "css": ".ds-btn-primary { font-family: 'Zen Kaku Gothic New', system-ui, sans-serif; font-weight: 700; font-size: 1rem; color: oklch(1 0 0); background: oklch(0.48 0.20 22); border: none; border-radius: 4px; padding: 16px 24px; width: 100%; cursor: pointer; transition: background 150ms cubic-bezier(0.33,1,0.68,1), transform 150ms cubic-bezier(0.33,1,0.68,1); } .ds-btn-primary:hover { background: oklch(0.40 0.18 22); transform: translateY(-1px); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(0.48 0.20 22); outline-offset: 2px; } @media (prefers-reduced-motion: reduce) { .ds-btn-primary { transition: background 150ms; } .ds-btn-primary:hover { transform: none; } }"
+    },
+    {
+      "name": "Gender Segment",
+      "kind": "button",
+      "refersTo": "segment-selected",
+      "description": "性別の2択。選択は Ink 塗り＋白文字、未選択は Surface 地。色相でなく塗りの濃さで判別。",
+      "html": "<div class=\"ds-segment\"><button class=\"ds-segment-btn is-selected\">男性</button><button class=\"ds-segment-btn\">女性</button></div>",
+      "css": ".ds-segment { display: flex; gap: 8px; } .ds-segment-btn { flex: 1; font-family: 'Zen Kaku Gothic New', system-ui, sans-serif; font-weight: 700; font-size: 0.875rem; padding: 12px 16px; min-height: 48px; border: 1px solid oklch(0.85 0 0); border-radius: 4px; background: oklch(0.965 0 0); color: oklch(0.18 0 0); cursor: pointer; transition: background 150ms, color 150ms; } .ds-segment-btn.is-selected { background: oklch(0.18 0 0); color: oklch(1 0 0); border-color: oklch(0.18 0 0); } .ds-segment-btn:focus-visible { outline: 2px solid oklch(0.48 0.20 22); outline-offset: 2px; }"
+    },
+    {
+      "name": "Bodyweight Input",
+      "kind": "input",
+      "refersTo": "input-underline",
+      "description": "下線型の体重入力。塗りボックスにしない。大きなモノ数字、フォーカスで赤い下線。",
+      "html": "<input class=\"ds-input\" type=\"number\" inputmode=\"decimal\" value=\"70\" aria-label=\"体重 (kg)\" />",
+      "css": ".ds-input { font-family: 'Spline Sans Mono', ui-monospace, monospace; font-weight: 700; font-size: clamp(1.5rem, 7vw, 2rem); color: oklch(0.18 0 0); background: oklch(1 0 0); border: none; border-bottom: 1px solid oklch(0.85 0 0); border-radius: 0; padding: 8px 0; width: 100%; transition: border-color 150ms, border-width 150ms; } .ds-input:focus { outline: none; border-bottom: 2px solid oklch(0.48 0.20 22); } .ds-input:focus-visible { outline: 2px solid oklch(0.48 0.20 22); outline-offset: 4px; }"
+    },
+    {
+      "name": "Exercise Tab (Bottom Bar)",
+      "kind": "nav",
+      "refersTo": "tab-active",
+      "description": "下部 near-black バーの種目タブ。アクティブは赤文字＋上辺インジケータ。",
+      "html": "<nav class=\"ds-bar\"><button class=\"ds-tab is-active\">ベンチ</button><button class=\"ds-tab\">スクワット</button><button class=\"ds-tab\">デッド</button><button class=\"ds-tab ds-tab-gear\" aria-label=\"設定\">⚙</button></nav>",
+      "css": ".ds-bar { display: flex; align-items: stretch; background: oklch(0.15 0 0); } .ds-tab { flex: 1; min-height: 56px; border: none; background: transparent; color: oklch(0.72 0 0); font-family: 'Zen Kaku Gothic New', system-ui, sans-serif; font-size: 0.875rem; font-weight: 400; cursor: pointer; position: relative; } .ds-tab.is-active { color: oklch(0.48 0.20 22); font-weight: 700; } .ds-tab.is-active::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: oklch(0.48 0.20 22); } .ds-tab-gear { flex: 0 0 auto; padding: 0 20px; font-size: 1.25rem; } .ds-tab:focus-visible { outline: 2px solid oklch(0.48 0.20 22); outline-offset: -2px; }"
+    },
+    {
+      "name": "Warning Chip",
+      "kind": "chip",
+      "refersTo": "chip-warn",
+      "description": "「範囲外」専用の塗りチップ。Amber 地＋濃インク文字。色のみに依存せず文言併記。",
+      "html": "<span class=\"ds-chip-warn\">範囲外</span>",
+      "css": ".ds-chip-warn { display: inline-block; font-family: 'Zen Kaku Gothic New', system-ui, sans-serif; font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.08em; color: oklch(0.30 0.06 70); background: oklch(0.82 0.14 75); border-radius: 4px; padding: 2px 6px; }"
+    },
+    {
+      "name": "Summary Band",
+      "kind": "card",
+      "refersTo": "button-primary",
+      "description": "角丸カードの代替。上下1px罫線の帯に、熱量ランプ色のラベル＋インク黒の大きなモノ数値5カラム。",
+      "html": "<section class=\"ds-summary\"><h2 class=\"ds-summary-title\">あなた(70kg)の目安 (kg)</h2><dl class=\"ds-summary-grid\"><div><dt style=\"color:oklch(0.50 0 0)\">初心者</dt><dd>51.9</dd></div><div><dt style=\"color:oklch(0.50 0.09 30)\">初級</dt><dd>66.9</dd></div><div><dt style=\"color:oklch(0.50 0.14 26)\">中級</dt><dd>80.3</dd></div><div><dt style=\"color:oklch(0.49 0.18 24)\">上級</dt><dd>110.3</dd></div><div><dt style=\"color:oklch(0.47 0.21 22)\">エリート</dt><dd>137.2</dd></div></dl></section>",
+      "css": ".ds-summary { border-top: 1px solid oklch(0.85 0 0); border-bottom: 1px solid oklch(0.85 0 0); padding: 16px 0; } .ds-summary-title { font-family: 'Zen Kaku Gothic New', system-ui, sans-serif; font-weight: 700; font-size: 1rem; color: oklch(0.18 0 0); margin: 0 0 12px; } .ds-summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 0; text-align: center; } .ds-summary-grid dt { font-family: 'Zen Kaku Gothic New', system-ui, sans-serif; font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.04em; margin-bottom: 4px; } .ds-summary-grid dd { font-family: 'Spline Sans Mono', ui-monospace, monospace; font-weight: 700; font-size: clamp(1.5rem, 7vw, 2rem); color: oklch(0.18 0 0); margin: 0; letter-spacing: -0.02em; }"
+    },
+    {
+      "name": "Standards Table Highlight Row",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "設定体重に最近接の行。背景tint＋太字＋▶マーカー＋上下2px赤罫線の三重表現（色のみ非依存）。",
+      "html": "<table class=\"ds-table\"><tbody><tr><td>70</td><td>51.5</td><td>66.5</td><td>80</td><td>110</td><td>137</td></tr><tr class=\"is-highlight\"><td><span class=\"ds-marker\">▶</span>71</td><td>52</td><td>67</td><td>80.5</td><td>110.5</td><td>137.5</td></tr></tbody></table>",
+      "css": ".ds-table { width: 100%; border-collapse: collapse; font-family: 'Spline Sans Mono', ui-monospace, monospace; font-size: 0.9375rem; } .ds-table td { padding: 8px 6px; text-align: right; color: oklch(0.18 0 0); } .ds-table td:first-child { text-align: left; } .ds-table tr.is-highlight { background: oklch(0.95 0.03 22); font-weight: 700; box-shadow: inset 0 2px 0 oklch(0.48 0.20 22), inset 0 -2px 0 oklch(0.48 0.20 22); } .ds-marker { color: oklch(0.48 0.20 22); margin-right: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Record Board",
+    "overview": "陸上の記録掲示板とリソグラフのスポーツポスターが交わる場所。純白の紙にインクのように黒い数字が刷られ、そこだけに一色の赤が乗る。主役は終始『重量の数字』で、UIはそれを最速・最正確に読ませる掲示板に徹する。力強さはエフェクトの量ではなく、コントラスト・タイポの重み・余白の引き算で出す。",
+    "keyCharacteristics": [
+      "純白 oklch(1 0 0) のキャンバス、インクブラックの数字、規律ある赤一色。",
+      "数字はすべて Spline Sans Mono でタブュラー整列。",
+      "カードではなく帯（band）と罫線（rule）で構造化。",
+      "影は原則ゼロ。浮くのは設定シートだけ。",
+      "5段階レベルはグレー→赤の『熱量ランプ』で温度づけ。"
+    ],
+    "rules": [
+      { "name": "The One Red Rule", "body": "赤は1画面内で『いま効いている対象』にのみ乗る——アクティブ種目・ハイライト行・主要アクション・フォーカス。赤の希少さがメッセージ。", "section": "colors" },
+      { "name": "The Numbers Stay Ink Rule", "body": "レベルの色分けはラベルとドットまで。重量の数字は何があってもインク黒。", "section": "colors" },
+      { "name": "The Tabular Rule", "body": "比較される数字は必ずモノスペースで桁を揃える。", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "面は静止時フラット。影は『浮く』意味を持つシート以外に付けない。", "section": "elevation" }
+    ],
+    "dos": [
+      "Do すべての比較数値を Spline Sans Mono のタブュラーで桁揃えする。",
+      "Do 赤は『いま効いている一点』だけに使う。",
+      "Do レベル識別は熱量ランプ色＋位置で行い、数字は常にインク黒に保つ。",
+      "Do ハイライト行は背景色＋太字＋▶マーカーの三重で示し色覚に依存させない。",
+      "Do 本文4.5:1・大文字/太字3:1・プレースホルダ4.5:1を満たす。",
+      "Do すべてのアニメーションに prefers-reduced-motion 代替を用意する。",
+      "Do カードの代わりに帯と1px罫線で構造を作る。",
+      "Do タッチターゲットを最低48–56px確保する。"
+    ],
+    "donts": [
+      "Don't ダークモード＋ネオンの筋トレアプリ反射に落ちる。",
+      "Don't 量産型SaaSダッシュボード（角丸カード＋アイコン＋薄グレー文字の反復）にしない。",
+      "Don't どぎつい筋トレ広告（過剰グラデ・煽り）にしない。",
+      "Don't ExRx原典のような生HTML罫線表のまま見せない。",
+      "Don't border-left/right を1px超の色付きストライプに使わない。",
+      "Don't グラデーション文字を使わない。",
+      "Don't 装飾的な影・グラスモーフィズムを既定にしない。",
+      "Don't 全セクション頭に大文字トラッキングの eyebrow を撒かない。",
+      "Don't 重量の数字を色付け・薄グレー化して可読性を落とさない。",
+      "Don't 999/9999 のような場当たり z-index を使わない。"
+    ]
+  }
+}

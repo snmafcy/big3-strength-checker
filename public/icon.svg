@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="BIG3">
+  <rect width="512" height="512" fill="#ffffff"/>
+  <rect x="48" y="232" width="416" height="48" fill="#111111"/>
+  <text x="256" y="210" font-family="Arial, sans-serif" font-size="150" font-weight="900" text-anchor="middle" fill="#111111">BIG</text>
+  <text x="256" y="420" font-family="Arial, sans-serif" font-size="190" font-weight="900" text-anchor="middle" fill="#c0202a">3</text>
+</svg>
