@@ -6,7 +6,6 @@ export interface DisplayRow {
   bodyweight: number;
   label: string;
   plus: boolean;
-  interpolated: boolean;
   values: Record<Level, number>;
   worldRecord: number;
 }
@@ -17,52 +16,18 @@ function levelValues(a: Anchor): Record<Level, number> {
   return v;
 }
 
-function anchorRow(a: Anchor): DisplayRow {
-  return {
+/**
+ * 表示行は本家ExRxのアンカー行をそのまま用いる（補間はサマリーが担うため、表に中間行は挿入しない）。
+ * 末尾に plus 行（例 145+）を付ける。
+ */
+export function buildDisplayRows(table: StandardsTable): DisplayRow[] {
+  return table.anchors.map((a) => ({
     bodyweight: a.bodyweight,
-    label: formatKg(a.bodyweight),
-    plus: false,
-    interpolated: false,
+    label: a.plus ? `${formatKg(a.bodyweight)}+` : formatKg(a.bodyweight),
+    plus: !!a.plus,
     values: levelValues(a),
     worldRecord: a.worldRecord,
-  };
-}
-
-export function buildDisplayRows(table: StandardsTable): DisplayRow[] {
-  const closed = table.anchors.filter((a) => !a.plus);
-  const plusRow = table.anchors.find((a) => a.plus);
-  const rows: DisplayRow[] = [];
-
-  for (let i = 0; i < closed.length; i++) {
-    const a = closed[i];
-    rows.push(anchorRow(a));
-    const next = closed[i + 1];
-    if (next && a.bodyweight <= 100 && next.bodyweight <= 100) {
-      const mid = (a.bodyweight + next.bodyweight) / 2;
-      const values = {} as Record<Level, number>;
-      for (const lv of LEVELS) values[lv] = (a[lv] + next[lv]) / 2;
-      rows.push({
-        bodyweight: mid,
-        label: formatKg(mid),
-        plus: false,
-        interpolated: true,
-        values,
-        worldRecord: (a.worldRecord + next.worldRecord) / 2,
-      });
-    }
-  }
-
-  if (plusRow) {
-    rows.push({
-      bodyweight: plusRow.bodyweight,
-      label: `${formatKg(plusRow.bodyweight)}+`,
-      plus: true,
-      interpolated: false,
-      values: levelValues(plusRow),
-      worldRecord: plusRow.worldRecord,
-    });
-  }
-  return rows;
+  }));
 }
 
 /** これ以上（含む）の体重行は「重量級」とみなし、オプション表示の対象とする。 */
