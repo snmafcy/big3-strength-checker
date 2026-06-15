@@ -1,8 +1,51 @@
+import { useState } from 'react';
+import type { Exercise } from './domain/types';
+import { useSettings } from './state/useSettings';
+import { getTable } from './data/standards';
+import { buildDisplayRows, findClosestRowIndex } from './domain/displayRows';
+import { interpolateLevels } from './domain/interpolation';
+import { Header } from './components/Header';
+import { SummaryBand } from './components/SummaryBand';
+import { StandardsTable } from './components/StandardsTable';
+import { ExerciseBottomBar } from './components/ExerciseBottomBar';
+import { SettingsSheet } from './components/SettingsSheet';
+
 export function App() {
+  const [settings, setSettings] = useSettings();
+  const [exercise, setExercise] = useState<Exercise>('bench');
+  const [sheetOpen, setSheetOpen] = useState(false);
+
+  const table = getTable(settings.gender, exercise);
+  const rows = buildDisplayRows(table);
+  const hasBodyweight = settings.bodyweight != null;
+  const summary = hasBodyweight ? interpolateLevels(table, settings.bodyweight!) : null;
+  const highlightIndex = hasBodyweight ? findClosestRowIndex(rows, settings.bodyweight!) : -1;
+
   return (
-    <main className="mx-auto max-w-md p-6">
-      <h1 className="font-sans text-2xl font-black tracking-tight">BIG3 レベルチェッカー</h1>
-      <p className="mt-2 text-sm text-muted">セットアップ確認用プレースホルダ。</p>
-    </main>
+    <div className="flex min-h-screen flex-col bg-bg text-ink">
+      <Header exercise={exercise} gender={settings.gender} />
+      <main className="mx-auto w-full max-w-md flex-1 overflow-y-auto px-4 pb-24">
+        {summary ? (
+          <SummaryBand bodyweight={settings.bodyweight!} levels={summary} />
+        ) : (
+          <p className="my-6 border-y border-hairline py-6 text-center text-sm text-muted">
+            <span className="mr-1" aria-hidden>⚙</span>
+            設定から性別・体重を入力すると、あなたの目安が表示されます
+          </p>
+        )}
+        <StandardsTable rows={rows} highlightIndex={highlightIndex} />
+      </main>
+      <ExerciseBottomBar exercise={exercise} onSelect={setExercise} onOpenSettings={() => setSheetOpen(true)} />
+      {sheetOpen && (
+        <SettingsSheet
+          initial={settings}
+          onSave={(s) => {
+            setSettings(s);
+            setSheetOpen(false);
+          }}
+          onClose={() => setSheetOpen(false)}
+        />
+      )}
+    </div>
   );
 }
