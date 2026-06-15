@@ -34,6 +34,9 @@ export function App() {
           </p>
         )}
         <StandardsTable rows={rows} highlightIndex={highlightIndex} />
+        <p className="mt-6 mb-2 text-center text-[11px] text-muted">
+          基準データ出典: ExRx Strength Standards（18-39歳）。補間値は目安です。
+        </p>
       </main>
       <ExerciseBottomBar exercise={exercise} onSelect={setExercise} onOpenSettings={() => setSheetOpen(true)} />
       {sheetOpen && (
