@@ -1,5 +1,5 @@
 import type { SVGProps } from 'react';
-import type { Exercise } from '../domain/types';
+import type { Exercise, Tab } from '../domain/types';
 
 const svgBase: SVGProps<SVGSVGElement> = {
   viewBox: '0 0 28 28',
@@ -50,6 +50,32 @@ export function ExerciseIcon({ exercise, className }: { exercise: Exercise; clas
       <line x1="14" y1="21" x2="14" y2="9" />
       <polyline points="10,13 14,9 18,13" />
     </svg>
+  );
+}
+
+/** BIG3 合計：プレートを3枚重ねたスタックでBIG3の総量を示す。 */
+export function TotalIcon({ className }: { className?: string }) {
+  return (
+    <svg {...svgBase} className={className}>
+      <line x1="7" y1="7" x2="21" y2="7" />
+      <line x1="5.5" y1="14" x2="22.5" y2="14" />
+      <line x1="4" y1="21" x2="24" y2="21" />
+      <circle cx="9" cy="7" r="1.8" {...plate} />
+      <circle cx="19" cy="7" r="1.8" {...plate} />
+      <circle cx="7.5" cy="14" r="1.8" {...plate} />
+      <circle cx="20.5" cy="14" r="1.8" {...plate} />
+      <circle cx="6" cy="21" r="1.8" {...plate} />
+      <circle cx="22" cy="21" r="1.8" {...plate} />
+    </svg>
+  );
+}
+
+/** タブ用アイコン。合計は TotalIcon、種目は ExerciseIcon を描画する。 */
+export function TabIcon({ tab, className }: { tab: Tab; className?: string }) {
+  return tab === 'total' ? (
+    <TotalIcon className={className} />
+  ) : (
+    <ExerciseIcon exercise={tab} className={className} />
   );
 }
 

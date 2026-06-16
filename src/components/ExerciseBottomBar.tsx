@@ -1,20 +1,20 @@
-import type { Exercise } from '../domain/types';
-import { EXERCISES } from '../domain/types';
-import { EXERCISE_LABEL } from '../domain/labels';
-import { ExerciseIcon, GearIcon } from './icons';
+import type { Tab } from '../domain/types';
+import { TABS } from '../domain/types';
+import { TAB_LABEL } from '../domain/labels';
+import { TabIcon, GearIcon } from './icons';
 
 export function ExerciseBottomBar({
   exercise,
   onSelect,
   onOpenSettings,
 }: {
-  exercise: Exercise;
-  onSelect: (e: Exercise) => void;
+  exercise: Tab;
+  onSelect: (e: Tab) => void;
   onOpenSettings: () => void;
 }) {
   return (
     <nav className="fixed inset-x-0 bottom-0 z-20 flex items-stretch bg-bar pb-[env(safe-area-inset-bottom)]">
-      {EXERCISES.map((e) => {
+      {TABS.map((e) => {
         const active = e === exercise;
         return (
           <button
@@ -27,8 +27,8 @@ export function ExerciseBottomBar({
             }`}
           >
             {active && <span className="absolute inset-x-0 top-0 h-0.5 bg-primary" />}
-            <ExerciseIcon exercise={e} className="h-6 w-6" />
-            <span className="text-[10px] leading-none tracking-wide">{EXERCISE_LABEL[e]}</span>
+            <TabIcon tab={e} className="h-6 w-6" />
+            <span className="text-[10px] leading-none tracking-wide">{TAB_LABEL[e]}</span>
           </button>
         );
       })}

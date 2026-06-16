@@ -1,9 +1,14 @@
-import type { Exercise, Gender, Level } from './types';
+import type { Exercise, Gender, Level, Tab } from './types';
 
 export const EXERCISE_LABEL: Record<Exercise, string> = {
   bench: 'ベンチ',
   squat: 'スクワット',
   deadlift: 'デッド',
+};
+
+export const TAB_LABEL: Record<Tab, string> = {
+  ...EXERCISE_LABEL,
+  total: 'BIG3',
 };
 
 export const GENDER_LABEL: Record<Gender, string> = {

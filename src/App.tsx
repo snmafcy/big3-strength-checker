@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import type { Exercise } from './domain/types';
+import type { Tab } from './domain/types';
 import { useSettings } from './state/useSettings';
-import { getTable } from './data/standards';
+import { getTableForTab } from './data/standards';
 import { buildDisplayRows, filterDisplayRows, findClosestRowIndex } from './domain/displayRows';
 import { interpolateLevels } from './domain/interpolation';
 import { Header } from './components/Header';
@@ -12,10 +12,11 @@ import { SettingsSheet } from './components/SettingsSheet';
 
 export function App() {
   const [settings, setSettings] = useSettings();
-  const [exercise, setExercise] = useState<Exercise>('bench');
+  const [exercise, setExercise] = useState<Tab>('bench');
   const [sheetOpen, setSheetOpen] = useState(false);
 
-  const table = getTable(settings.gender, exercise);
+  const table = getTableForTab(settings.gender, exercise);
+  const showWorldRecord = settings.showWorldRecord && exercise !== 'total';
   const rows = filterDisplayRows(buildDisplayRows(table), settings.showHeavyRows);
   const hasBodyweight = settings.bodyweight != null;
   const summary = hasBodyweight ? interpolateLevels(table, settings.bodyweight!) : null;
@@ -33,7 +34,7 @@ export function App() {
             設定から性別・体重を入力すると、あなたの目安が表示されます
           </p>
         )}
-        <StandardsTable rows={rows} highlightIndex={highlightIndex} showWorldRecord={settings.showWorldRecord} />
+        <StandardsTable rows={rows} highlightIndex={highlightIndex} showWorldRecord={showWorldRecord} />
         <p className="mt-6 mb-2 text-center text-[11px] text-muted">
           基準データ出典: ExRx Strength Standards（18-39歳）。補間値は目安です。
         </p>

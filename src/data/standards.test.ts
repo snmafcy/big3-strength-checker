@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { tables, getTable, source, ageBand } from './standards';
+import { tables, getTable, getTotalTable, getTableForTab, source, ageBand } from './standards';
 import { LEVELS } from '../domain/types';
 
 describe('standards loader', () => {
@@ -35,5 +35,35 @@ describe('standards loader', () => {
   it('source と ageBand を公開する', () => {
     expect(source).toContain('ExRx');
     expect(ageBand).toBe('18-39');
+  });
+});
+
+describe('getTotalTable', () => {
+  it('各体重で3種目のレベル値・worldRecord を合算する', () => {
+    const total = getTotalTable('male');
+    const bench = getTable('male', 'bench');
+    const squat = getTable('male', 'squat');
+    const deadlift = getTable('male', 'deadlift');
+
+    expect(total.exercise).toBe('total');
+    expect(total.anchors).toHaveLength(bench.anchors.length);
+
+    total.anchors.forEach((a, i) => {
+      expect(a.bodyweight).toBe(bench.anchors[i].bodyweight);
+      expect(a.plus).toBe(bench.anchors[i].plus);
+      for (const lv of LEVELS) {
+        expect(a[lv]).toBeCloseTo(
+          bench.anchors[i][lv] + squat.anchors[i][lv] + deadlift.anchors[i][lv],
+        );
+      }
+      expect(a.worldRecord).toBeCloseTo(
+        bench.anchors[i].worldRecord + squat.anchors[i].worldRecord + deadlift.anchors[i].worldRecord,
+      );
+    });
+  });
+
+  it('getTableForTab は total で合計テーブル、種目で個別テーブルを返す', () => {
+    expect(getTableForTab('female', 'total').exercise).toBe('total');
+    expect(getTableForTab('female', 'squat').exercise).toBe('squat');
   });
 });
