@@ -1,0 +1,1 @@
+{"name":"BIG3 レベルチェッカー","short_name":"BIG3","description":"体重からBIG3の筋力目安が一目で分かる","start_url":"/big3-strength-checker/","display":"standalone","background_color":"#ffffff","theme_color":"#ffffff","lang":"ja","scope":"/big3-strength-checker/","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]}

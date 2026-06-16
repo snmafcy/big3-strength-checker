@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/big3-strength-checker/sw.js', { scope: '/big3-strength-checker/' })})}
