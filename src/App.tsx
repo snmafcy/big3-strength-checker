@@ -24,7 +24,7 @@ export function App() {
   return (
     <div className="flex min-h-screen flex-col bg-bg text-ink">
       <Header exercise={exercise} gender={settings.gender} />
-      <main className="mx-auto w-full max-w-md flex-1 overflow-y-auto px-4 pb-24">
+      <main className="mx-auto w-full max-w-md flex-1 overflow-y-auto px-4 pb-24 lg:max-w-3xl">
         {summary ? (
           <SummaryBand bodyweight={settings.bodyweight!} levels={summary} />
         ) : (

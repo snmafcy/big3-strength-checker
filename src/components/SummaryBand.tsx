@@ -14,13 +14,13 @@ export function SummaryBand({ bodyweight, levels }: { bodyweight: number; levels
           </span>
         )}
       </h2>
-      <dl className="grid grid-cols-5 gap-x-3 text-center">
+      <dl className="grid grid-cols-5 gap-x-3 text-center lg:gap-x-6">
         {LEVELS.map((lv) => (
           <div key={lv}>
-            <dt className="mb-1 text-[11px] font-bold tracking-wide" style={{ color: LEVEL_COLOR_VAR[lv] }}>
+            <dt className="mb-1 text-[11px] font-bold tracking-wide lg:text-sm" style={{ color: LEVEL_COLOR_VAR[lv] }}>
               {LEVEL_LABEL[lv]}
             </dt>
-            <dd className="tabular text-lg font-bold tracking-tight text-ink sm:text-xl">
+            <dd className="tabular text-lg font-bold tracking-tight text-ink sm:text-xl lg:text-4xl">
               {formatStandard(levels[lv])}
             </dd>
           </div>
