@@ -1,5 +1,8 @@
 node_modules/
 dist/
+dist-ssr
+*.tsbuildinfo
+vite.config.d.ts
 .superpowers/
 .DS_Store
 *.local

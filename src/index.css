@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors — DESIGN.md (OKLCH, canonical) */
+  --color-bg: oklch(1 0 0);
+  --color-surface: oklch(0.965 0 0);
+  --color-surface-sunken: oklch(0.93 0 0);
+  --color-ink: oklch(0.18 0 0);
+  --color-bar: oklch(0.15 0 0);
+  --color-muted: oklch(0.44 0 0);
+  --color-hairline: oklch(0.85 0 0);
+  --color-primary: oklch(0.48 0.20 22);
+  --color-primary-deep: oklch(0.40 0.18 22);
+  --color-primary-tint: oklch(0.95 0.03 22);
+  --color-warn: oklch(0.82 0.14 75);
+  --color-warn-ink: oklch(0.30 0.06 70);
+  --color-level-untrained: oklch(0.50 0 0);
+  --color-level-novice: oklch(0.50 0.09 30);
+  --color-level-intermediate: oklch(0.50 0.14 26);
+  --color-level-advanced: oklch(0.49 0.18 24);
+  --color-level-elite: oklch(0.47 0.21 22);
+
+  /* Typography */
+  --font-sans: "Zen Kaku Gothic New", system-ui, sans-serif;
+  --font-mono: "Spline Sans Mono", ui-monospace, monospace;
+
+  /* Radius (sharp-by-default) */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* タブュラー数字（The Tabular Rule） */
+.tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes sheet {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
