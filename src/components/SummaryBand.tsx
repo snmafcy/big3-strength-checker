@@ -5,7 +5,7 @@ import { formatKg, formatStandard } from '../domain/format';
 
 export function SummaryBand({ bodyweight, levels }: { bodyweight: number; levels: InterpolatedLevels }) {
   return (
-    <section className="my-4 border-y border-hairline py-4">
+    <section className="mt-4 mb-5">
       <h2 className="mb-3 flex items-center gap-2 font-sans text-base font-bold text-ink">
         あなた(<span className="tabular">{formatKg(bodyweight)}</span>kg)の目安 (kg)
         {levels.outOfRange && (
