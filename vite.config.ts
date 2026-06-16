@@ -4,7 +4,9 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
-export default defineConfig({
+// GitHub Pages はサブパス（/big3-strength-checker/）配信。dev はルート。
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/big3-strength-checker/' : '/',
   plugins: [
     react(),
     tailwindcss(),
@@ -29,4 +31,4 @@ export default defineConfig({
     globals: true,
     setupFiles: './src/test/setup.ts',
   },
-});
+}));
