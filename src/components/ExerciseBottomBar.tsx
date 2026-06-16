@@ -1,6 +1,7 @@
 import type { Exercise } from '../domain/types';
 import { EXERCISES } from '../domain/types';
 import { EXERCISE_LABEL } from '../domain/labels';
+import { ExerciseIcon, GearIcon } from './icons';
 
 export function ExerciseBottomBar({
   exercise,
@@ -21,12 +22,13 @@ export function ExerciseBottomBar({
             type="button"
             onClick={() => onSelect(e)}
             aria-pressed={active}
-            className={`relative min-h-[56px] flex-1 font-sans text-sm focus-visible:outline-2 focus-visible:outline-primary focus-visible:[outline-offset:-2px] ${
+            className={`relative flex min-h-[56px] flex-1 flex-col items-center justify-center gap-1 font-sans focus-visible:outline-2 focus-visible:outline-primary focus-visible:[outline-offset:-2px] ${
               active ? 'font-bold text-primary' : 'text-[oklch(0.72_0_0)]'
             }`}
           >
             {active && <span className="absolute inset-x-0 top-0 h-0.5 bg-primary" />}
-            {EXERCISE_LABEL[e]}
+            <ExerciseIcon exercise={e} className="h-6 w-6" />
+            <span className="text-[10px] leading-none tracking-wide">{EXERCISE_LABEL[e]}</span>
           </button>
         );
       })}
@@ -34,9 +36,10 @@ export function ExerciseBottomBar({
         type="button"
         aria-label="設定"
         onClick={onOpenSettings}
-        className="min-h-[56px] px-5 text-xl text-[oklch(0.72_0_0)] focus-visible:outline-2 focus-visible:outline-primary focus-visible:[outline-offset:-2px]"
+        className="flex min-h-[56px] flex-col items-center justify-center gap-1 px-4 font-sans text-[oklch(0.72_0_0)] focus-visible:outline-2 focus-visible:outline-primary focus-visible:[outline-offset:-2px]"
       >
-        ⚙
+        <GearIcon className="h-6 w-6" />
+        <span className="text-[10px] leading-none tracking-wide">設定</span>
       </button>
     </nav>
   );
